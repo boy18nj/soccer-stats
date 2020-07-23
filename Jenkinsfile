@@ -16,7 +16,7 @@ stage('Build') {
         git branch: 'release/1.0', url: 'https://github.com/boy18nj/soccer-stats.git'
         withEnv(["PATH+MAVEN=${tool 'm3'}/bin"]) {
             //if(FULL_BUILD) {
-                def pom = readMav   enPom file: 'pom.xml'
+                def pom = readMavenPom file: 'pom.xml'
                 echo "Hello World"
                 echo "${pom.version}-${BUILD_NUMBER}-${pom.artifactId}"
                // sh "mvn -B versions:set -DnewVersion=${pom.version}-${BUILD_NUMBER}"
