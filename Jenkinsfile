@@ -12,14 +12,14 @@ stage('Build') {
     node {
         git GIT_URL
         withEnv(["PATH+MAVEN=${tool 'm3'}/bin"]) {
-            if(FULL_BUILD) {
+            //if(FULL_BUILD) {
                 def pom = readMavenPom file: 'pom.xml'
                 echo 'Hello World'
                 echo '${pom.version}-${BUILD_NUMBER}'
-                sh "mvn -B versions:set -DnewVersion=${pom.version}-${BUILD_NUMBER}"
-                sh "mvn -B -Dmaven.test.skip=true clean package"
-                stash name: "artifact", includes: "target/soccer-stats-*.war"
-            }
+               // sh "mvn -B versions:set -DnewVersion=${pom.version}-${BUILD_NUMBER}"
+               // sh "mvn -B -Dmaven.test.skip=true clean package"
+               // stash name: "artifact", includes: "target/soccer-stats-*.war"
+            //}
         }
     }
 }
