@@ -10,7 +10,7 @@ final NEXUS_URL = 'nexus.local:8081'
 
 stage('Build') {
     environment {
-        hello.1 = 'world'
+        hello = 'world'
     }
     node {
         git branch: 'release/1.0', url: 'https://github.com/boy18nj/soccer-stats.git'
