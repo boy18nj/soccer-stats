@@ -9,11 +9,14 @@ final GIT_URL = 'https://github.com/boy18nj/soccer-stats.git'
 final NEXUS_URL = 'nexus.local:8081'
 
 stage('Build') {
+    environment {
+        hello = 'world'
+    }
     node {
         git branch: 'release/1.0', url: 'https://github.com/boy18nj/soccer-stats.git'
         withEnv(["PATH+MAVEN=${tool 'm3'}/bin"]) {
             //if(FULL_BUILD) {
-                def pom = readMavenPom file: 'pom.xml'
+                def pom = readMav   enPom file: 'pom.xml'
                 echo "Hello World"
                 echo "${pom.version}-${BUILD_NUMBER}-${pom.artifactId}"
                // sh "mvn -B versions:set -DnewVersion=${pom.version}-${BUILD_NUMBER}"
