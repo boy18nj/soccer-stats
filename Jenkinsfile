@@ -10,7 +10,7 @@ final NEXUS_URL = 'nexus.local:8081'
 
 stage('Build') {
     node {
-        git branch: 'release/1.0', GIT_URL
+        git branch: 'release/1.0', url: GIT_URL
         withEnv(["PATH+MAVEN=${tool 'm3'}/bin"]) {
             //if(FULL_BUILD) {
                 def pom = readMavenPom file: 'pom.xml'
