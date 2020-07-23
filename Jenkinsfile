@@ -19,6 +19,9 @@ stage('Build') {
                // sh "mvn -B versions:set -DnewVersion=${pom.version}-${BUILD_NUMBER}"
                // sh "mvn -B -Dmaven.test.skip=true clean package"
                // stash name: "artifact", includes: "target/soccer-stats-*.war"
+
+               def version = sh script: 'mvn help:evaluate -Dexpression=project.version -q -DforceStdout', returnStdout: true
+               echo "${version}"
             //}
         }
     }
