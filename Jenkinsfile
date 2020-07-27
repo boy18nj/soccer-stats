@@ -25,6 +25,7 @@ stage('Build') {
 
                def version = sh script: 'mvn help:evaluate -Dexpression=project.version -q -DforceStdout', returnStdout: true
                echo "${version}"
+               echo "Passed in parameters ${States} ${Branches}"
             //}
         }
     }
